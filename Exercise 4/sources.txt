@@ -1,0 +1,4 @@
+vagrant@ubuntu-focal:/etc/apt$ ls sources.list.d
+ondrej-ubuntu-php-focal.list
+vagrant@ubuntu-focal:/etc/apt$ 
+
