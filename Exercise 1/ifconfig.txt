@@ -1,0 +1,27 @@
+vagrant@ubuntu-focal:~$ ifconfig
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
+        inet6 fe80::e1:ffff:fe61:db2e  prefixlen 64  scopeid 0x20<link>
+        ether 02:e1:ff:61:db:2e  txqueuelen 1000  (Ethernet)
+        RX packets 2105  bytes 1165151 (1.1 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1343  bytes 168797 (168.7 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp0s8: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.56.4  netmask 255.255.255.0  broadcast 192.168.56.255
+        inet6 fe80::a00:27ff:fe6f:593a  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:6f:59:3a  txqueuelen 1000  (Ethernet)
+        RX packets 68  bytes 20240 (20.2 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 34  bytes 4953 (4.9 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 28  bytes 2740 (2.7 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 28  bytes 2740 (2.7 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
