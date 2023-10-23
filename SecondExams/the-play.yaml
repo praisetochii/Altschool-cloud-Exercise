@@ -1,0 +1,22 @@
+---
+- name: Deploy LAMP Stack and Configure Cron Job
+  hosts: 192.168.20.24 #ip address of slave machine kobe
+  become: yes
+
+  tasks:
+    - name: run the bash script on the Slave node
+      shell: /Users/togods/SecondExams/laravel.sh
+      ignore_errors: yes # Overlook errors to continue with the playbook
+      register: script_output
+
+    - name: Verify PHP application accessibility
+      wait_for:
+        host: { { ansible_ssh_host } }
+        port: 80
+        timeout: 60
+      when: script_output is success
+
+    - name: Create a cron job to check server uptime every 12 am
+      cron:
+        name: Check_Uptime
+        job: "0 0 * * * /usr/bin/uptime > /path/to/uptime.log"

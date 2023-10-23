@@ -1,0 +1,33 @@
+#!/bin/bash
+
+
+#initialize vagrant machine to pull a vagrant file
+vagrant init
+
+#configure master and slave machines
+cat <<EOL > Vagrantfile
+Vagrant.configure("2") do |config|
+  config.vm.define "master" do |master|
+    master.vm.hostname = "master"
+    master.vm.box = "bento/ubuntu-20.04-arm64"
+    master.vm.network "private_network", ip: "192.168.20.23"
+    master.vm.provision "shell", path: "laravel.sh"
+  end
+
+  config.vm.define "slave" do |slave|
+    slave.vm.hostname = "slave"
+    slave.vm.box = "bento/ubuntu-20.04-arm64"
+    slave.vm.network "private_network", ip: "192.168.20.24"
+
+    slave.vm.provision "ansible" do |ansible|
+      ansible.playbook = "/Users/togods/SecondExams/the-play.yaml"
+    end
+  end
+end
+EOL
+
+
+#bring up both machines
+vagrant up master
+
+vagrant up slave
