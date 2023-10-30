@@ -4,28 +4,47 @@
 #initialize vagrant machine to pull a vagrant file
 vagrant init
 
-#configure master and slave machines
 cat <<EOL > Vagrantfile
 Vagrant.configure("2") do |config|
-  config.vm.define "master" do |master|
+    config.vm.define "master" do |master|    
+    master.vm.box = "spox/ubuntu-arm"
+    master.vm.box_version = "1.0.0"
+    master.vm.network "private_network", ip: "192.168.56.30"
     master.vm.hostname = "master"
-    master.vm.box = "bento/ubuntu-20.04-arm64"
-    master.vm.network "private_network", ip: "192.168.20.23"
-    master.vm.provision "shell", path: "laravel.sh"
-  end
-
-  config.vm.define "slave" do |slave|
-    slave.vm.hostname = "slave"
-    slave.vm.box = "bento/ubuntu-20.04-arm64"
-    slave.vm.network "private_network", ip: "192.168.20.24"
-
-    slave.vm.provision "ansible" do |ansible|
-      ansible.playbook = "/Users/togods/SecondExams/the-play.yaml"
+    master.vm.provider "vmware_desktop" do |v|
+      v.allowlist_verified = true
+      v.ssh_info_public = true
+        # v.gui = true
     end
+    master.vm.provision "shell", inline: <<-SHELL
+    # sudo mv /etc/apt/sources.list /tmp/
+     sudo apt clean
+     sudo apt update
+     sudo apt upgrade
+     sudo systemctl stop ufw
+
+    SHELL
+  end
+    config.vm.define "slave" do |slave|
+    slave.vm.box = "spox/ubuntu-arm"
+    slave.vm.box_version = "1.0.0"
+    slave.vm.network "private_network", ip: "192.168.56.31"
+    slave.vm.hostname = "slave"
+    slave.vm.provider "vmware_desktop" do |v|
+      v.allowlist_verified = true
+      v.ssh_info_public = true
+        # v.gui = true
+    end
+    slave.vm.provision "shell", inline: <<-SHELL
+    #  sudo mv /etc/apt/sources.list /tmp/
+     sudo apt clean
+     sudo apt update
+     sudo systemctl stop ufw
+
+    SHELL
   end
 end
 EOL
-
 
 #bring up both machines
 vagrant up master
