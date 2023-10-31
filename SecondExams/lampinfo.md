@@ -38,7 +38,7 @@ Create a MySQL user and grant privileges. Replace 'appuser' and 'password' with 
 
 Install Git and Composer, a PHP dependency manager and PHP extentions required by laravel.
 
-![alt](/pictures/gitext.png)
+![alt](/SecondExams/pngs/composerphp.png)
 
 6. Clone Laravel Application:
 
@@ -48,19 +48,19 @@ Remove the default Apache index.html and clone a Laravel application from GitHub
 
 Install Laravel dependencies using Composer.
 
-![alt](/pictures/clone.png)
+![alt](/SecondExams/pngs/git-clone.png)
 
 8. Configure Environment and Permissions:
 
 Copy the Laravel environment file, set appropriate permissions, and generate an application key.
 
-![alt](/pictures/artisan.png)
+![alt](/SecondExams/pngs/artisan-key.png)
 
 9. Create Laravel Database:
 
 Create the Laravel application database. Replace 'sample_app_db' with your preferred database name.
 
-![alt](/pictures/DB.png)
+![alt](/SecondExams/pngs/databaseset.png)
 
 10. Configure Apache Virtual Host:
 
@@ -72,4 +72,4 @@ Create a configuration file for the Apache virtual host. This step includes sett
 
 Enable the newly created site in Apache and Reload Apache configuration and enable the mod_rewrite module.
 
-![alt](/SecondExams/png/lastpic.png)
+![alt](/SecondExams/pngs/lastpic.png)
