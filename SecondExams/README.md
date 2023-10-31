@@ -8,11 +8,11 @@ add your shebang (every bash script begins with a shebang line)
 
 initialize a vagrant environment to pull a vagrantfile by running vagrant init
 
-![img](/pngs/intial.png)
+![img](/SecondExams/pngs/intial.png)
 
 Next using herdoc to edit the vagranfile to configure two machines.
 
-![img](/pngs/box-creation.png)
+![img](/SecondExams/pngs/box-creation.png)
 
 In the picture, the hostname was given which is the name of the machine, the box was specified and the network was set also the master has a network type dhcp while the slave was given a static ip address
 
