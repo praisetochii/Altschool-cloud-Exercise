@@ -14,7 +14,7 @@ Necessary permissions to execute tasks on the target server.
 
 Execute the playbook on the slave machine using the following command:
 
-![alt](/pictures/ansible-provision.png)
+![alt](/SecondExams/pngs/ansible-provision.png)
 
 add the playbook in your configuration file ot slave machine.
 
