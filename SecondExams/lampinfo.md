@@ -66,10 +66,10 @@ Create the Laravel application database. Replace 'sample_app_db' with your prefe
 
 Create a configuration file for the Apache virtual host. This step includes setting the DocumentRoot and Directory settings.
 
-![alt](/pictures/virtual.png)
+![alt](/SecondExams/pngs/80.png)
 
 11. Enable the Site in Apache and Restart Apache and Enable Mod Rewrite:
 
 Enable the newly created site in Apache and Reload Apache configuration and enable the mod_rewrite module.
 
-![alt](/SecondExams/png/last pic.png)
+![alt](/SecondExams/png/lastpic.png)
